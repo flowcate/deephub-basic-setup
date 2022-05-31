@@ -1,0 +1,326 @@
+#
+# This is an example configuration file for DeepHub®.
+# The active configuration file must have the filename hub_config.yaml.
+#
+# The DeepHub server can be configured in three different ways.
+# Listed from most to least specific, these ways are:
+#   1. Environment variables
+#   2. Command line arguments
+#   3. Configration file
+# Options provided multiple times via different ways will be overriden according
+# to the aforementioned specificity.
+
+#
+# The license key used to authenticate this DeepHub instance with the license server.
+# This parameter is mandatory and has to be provided by one of the three ways.
+# Example: BE7B7835-F2B3-4F40-90C7-458AC95D4859
+# Default: not set
+#
+# license_key:
+
+#
+# Whether the server should accept cross site origin requests (cors).
+# Default: true
+#
+# cors:
+
+#
+# Whether the server should enforce to use HTTPS / wss (secure websocket) and disallow
+# non-encrypted requests. Requires public and private certificates.
+# Default: false
+#
+# force_https:
+
+#
+# Whether to verify the OpenID server's certificate. This should be set to true in
+# production mode.
+# Default: false
+#
+# verify_authserver:
+
+#
+# Whether the server should write last locations to the database.
+# Note: When enabled, server performance might decrease. See db_fast_writes for mitigating some of the
+# performance loss.
+# Default: true
+#
+# persist_locations:
+
+#
+# Whether the server should merge multiple location and motion updates for the same entity into a single
+# database update. Only works if persist_locations is enabled.
+# This option can significantly increase the rate at which location updates can be processed.
+# As a side effect, API calls for such updates can not report database errors immidiately (e.g. lost connection).
+# Accepted and confirmed updates will be retried und submitted once the error is resolved.
+# Default: true
+#
+# db_fast_writes:
+
+#
+# Whether authorization is required or not. If authorization is required
+# openid_config_url must be configured, and the optional parameters
+# authserver_public_key_path and verify_authserver are strongly advised to be set
+# for a production environment.
+# Default: false
+#
+# require_authorization:
+
+#
+# The directory used by DeepHub to store the database and configuration files.
+# This directory needs read and write permissions.
+# Example: /path/to/data
+# Default: .
+#
+# config_path:
+
+#
+# The document root directory of the web server.
+# Default: .
+#
+# doc_root:
+
+#
+# The servers host name.
+# Example: localhost
+# Default: 0.0.0.0
+#
+# host:
+
+#
+# The port on which to listen for incoming connections.
+# Note that the server is capable to upgrade requests, thus only a single port is used
+# by the server for HTTP, HTTPS and Websocket (both plain and TLS).
+# Default: 8081
+#
+# port:
+
+#
+# The address at which the Flowcate license server is reachable.
+# Default: https://license.deephub.io
+#
+# license_server_address:
+
+#
+# The port at which the Flowcate license server is reachable.
+# Default: 443
+#
+# license_server_port:
+
+#
+# The number of worker threads to spawn for HTTP(s) and websocket connections.
+# Example: 8
+# Default: Number of processors
+#
+# num_threads:
+
+#
+# In order to be able to control the verbosity of our logging, we differentiate
+# between the following six severity levels:
+# Fatal | Error | Warning | Info | Debug | Trace
+# The DeepHub will log all messages from the chosen severity level and higher.
+# Default: Info
+#
+# severity_level:
+
+#
+# The path to the PEM file containing the public key of the authentication server.
+# This public key is used to verify requests to the OpenID config service.
+# Example: /path/to/data
+# Default: not set
+#
+# authserver_public_key_path:
+
+#
+# The OpenID configuration URL which contains information about OpenID authentication
+# and authorization endpoints. Check your OpenID server documentation for details.
+# This setting is mandatory when require_authorization is used.
+# Example: http://127.0.0.1:8080/auth/realms/omlox/.well-known/openid-configuration
+# Default: not set
+#
+# openid_config_url:
+
+#
+# The client name of the DeepHub. The parameter is mandatory when using OpenID, in order
+# to verify client token claims (mandatory by OpenID standard).
+# Please refer to "API Security.md" for an audience claim mapping example.
+# Example: deephub-service
+# Default: not set
+#
+# openid_client_name:
+
+#
+# The OpenID client secret to be used for the DeepHub service.
+# Default: not set
+#
+# openid_client_secret:
+
+#
+# A path to a file containing a recorded session. The session will be played back in a loop.
+# Example: /path/to/data
+# Default: not set
+#
+# playback_path:
+
+#
+# The speed at which the recorded session will be played back.
+# Default: 1.0
+#
+# playback_speed:
+
+#
+# A path to the session record. When this path is set, the server will write all requests
+# to the specified file for later playback.
+# Note: This functionality is meant for demonstration and testing purposes. Do not use this
+# in production mode, as it will slow down overall operation of the server and keep the
+# recorded file growing over time.
+# Example: /path/to/data
+# Default: not set
+#
+# record_path:
+
+#
+# Path to the DH params file for secure communication over HTTPS / wss.
+# Example: /path/to/data
+# Default: not set
+#
+# dh_params_path:
+
+#
+# The private key's password.
+# Default: not set
+#
+# private_key_password:
+
+#
+# Path to the PEM file containing the server's private key required for secure communication
+# over HTTPS / wss. This parameter is mandatory when using force_https.
+# Example: /path/to/data
+# Default: not set
+#
+# private_key_path:
+
+#
+# Path to the PEM file containing the server's public key required for secure communication
+# over HTTPS / wss. This parameter is mandatory when using force_https.
+# Example: /path/to/data
+# Default: not set
+#
+# public_key_path:
+
+#
+# The database type the DeepHub uses. Supported values are sqlite and cassandra.
+# Default: sqlite
+#
+# db_type:
+
+#
+# List of host names for the Cassandra cluster.
+# Default: localhost
+#
+# cassandra_hosts:
+
+#
+# Port of the Cassandra cluster.
+# Default: 9042
+#
+# cassandra_port:
+
+#
+# Username used to authenticate to the Cassandra cluster.
+# This user needs full access to the DeepHub related namespaces.
+# Default: not set
+# Example: user
+#
+# cassandra_username:
+
+#
+# Password used to authenticate to the Cassandra cluster.
+# Default: not set
+# Example: password
+#
+# cassandra_password:
+
+#
+# Base name of the Cassandra keyspace. DeepHub will use two namespaces, one named as provided by this option
+# and a second one appended with "_stats".
+# For the default namespace this gives the following to namespaces: "deephub", "deephub_stats".
+# The user provided as cassandra_username needs full access to both namespaces.
+# Default: deephub
+#
+# cassandra_keyspace:
+
+#
+# Connection timeout, in milliseconds.
+# Default: 5000
+#
+# cassandra_connect_timeout:
+
+#
+# Request timeout, in milliseconds.
+# Default: 12000
+#
+# cassandra_request_timeout:
+
+#
+# In order to be able to control the read consistency the DeepHub supports the following Cassandra consistencies:
+# UNKNOWN|ANY|ONE|TWO|QUORUM|ALL|LOCAL_QUORUM|EACH_QUORUM|SERIAL|LOCAL_SERIAL|QUORUM|LOCAL_ONE
+# Default: LOCAL_QUORUM
+#
+# cassandra_read_consistency:
+
+#
+# In order to be able to control the write consistency the DeepHub supports the following Cassandra consistencies:
+# UNKNOWN|ANY|ONE|TWO|QUORUM|ALL|LOCAL_QUORUM|EACH_QUORUM|SERIAL|LOCAL_SERIAL|QUORUM|LOCAL_ONE
+# Default: LOCAL_QUORUM
+#
+# cassandra_write_consistency:
+
+#
+# Cassandra connection keep-alive interval in seconds.
+# Default: 7200
+#
+# cassandra_keep_alive:
+
+#
+# Whether Cassandra latency aware routing is enabled.
+# Default: true
+#
+# cassandra_latency_aware_routing:
+
+#
+# Whether Cassandra token aware routing is enabled.
+# Default: true
+#
+# cassandra_token_aware_routing:
+
+#
+# Whether Cassandra load balancing is enabled.
+# Default: true
+#
+# cassandra_load_balancing:
+
+#
+# Number of Cassandra IO threads.
+# Default: 4
+#
+# cassandra_io_threads:
+
+#
+# Cassandra replication strategy.
+# Default: {'class': 'SimpleStrategy', 'replication_factor': '1'}
+#
+# cassandra_replication_strategy:
+
+#
+# Whether the Cassandra connection enforces TLS.
+# Default: false
+#
+# cassandra_use_tls:
+
+#
+# Path to the PEM file for a TLS enabled connection to Cassandra.
+# Default: not set
+# Example: /path/to/pem/file
+#
+# cassandra_tls_pem:
+

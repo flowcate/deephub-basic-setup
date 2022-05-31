@@ -1,0 +1,87 @@
+version: "3.2"
+services:
+
+  deephub:
+    image: flowcate/deephub:latest
+    container_name: 8081-deephub
+    restart: unless-stopped
+    read_only: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "10m"
+    environment:
+      - DEEPHUB_PORT=7081
+      - DEEPHUB_HOST=0.0.0.0
+      - DEEPHUB_CORS=true
+      - DEEPHUB_OPENID_CLIENT_NAME=omlox-api-client
+      - DEEPHUB_OPENID_CONFIG_URL=https://dev-hub.deep-map.io/auth/realms/omlox/.well-known/openid-configuration
+      - DEEPHUB_LICENSE_KEY=801011a9-91a8-43ca-bceb-7c03d2c86bc6
+    ports:
+      - "7081"
+    volumes:
+      - "./hub-data/:/data"
+      - "./hub-web/:/app/v1/web"
+      - "./hub-web/:/app/v1/demo"
+      - "./hub-web/:/app/v1/mapview"
+    networks:
+      - deephub-net
+
+  deephub-ui:
+    image: flowcate/deephub-ui:latest
+    container_name: 8081-deephub-ui
+    tty: true
+    stdin_open: true
+    read_only: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "10m"
+    depends_on:
+      - deephub
+    restart: unless-stopped
+    ports:
+      - "80"
+    volumes:
+      - "./hub-web/:/var/run"
+      - "./hub-web/nginx/log/:/var/log/nginx"
+      - "./hub-web/nginx/cache/:/var/cache/nginx"
+      - "./hub-web/nginx/webapp/:/webapp"
+    environment:
+      - DOCKER_BASE_URL=/deephub/v1
+      - DOCKER_ROOT_URL=/deephub
+      - DOCKER_WEBSOCKET_URL=
+      - DOCKER_APP_BASE_HREF=/deephub-ui/
+      - DOCKER_MAP_UPDATES_PER_SECOND=10
+      - DOCKER_USE_AUTH=false
+      - DOCKER_AUTH_ISSUER=
+      - DOCKER_AUTH_REDIRECT_URI=
+      - DOCKER_AUTH_CLIENT_ID=
+    networks:
+      - deephub-net
+
+  deephub-apache:
+    image: httpd:alpine
+    container_name: 8081-deephub-apache
+    restart: unless-stopped
+    read_only: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "10m"
+    depends_on:
+      - deephub-ui
+    ports:
+      - "8081:80"
+    volumes:
+      - "./apache/conf:/usr/local/apache2/conf"
+      - "./apache/htdocs:/usr/local/apache2/htdocs"
+      - "./apache/logs:/usr/local/apache2/logs"
+    networks:
+      - deephub-net
+
+networks:
+  deephub-net:
