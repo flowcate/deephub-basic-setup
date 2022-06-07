@@ -22,9 +22,6 @@ services:
       - "7081"
     volumes:
       - "./hub-data/:/data"
-      - "./hub-web/:/app/v1/web"
-      - "./hub-web/:/app/v1/demo"
-      - "./hub-web/:/app/v1/mapview"
     networks:
       - deephub-net
 
