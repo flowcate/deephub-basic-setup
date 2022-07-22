@@ -15,9 +15,9 @@ services:
       - DEEPHUB_PORT=7081
       - DEEPHUB_HOST=0.0.0.0
       - DEEPHUB_CORS=true
-      - DEEPHUB_OPENID_CLIENT_NAME=omlox-api-client
-      - DEEPHUB_OPENID_CONFIG_URL=https://dev-hub.deep-map.io/auth/realms/omlox/.well-known/openid-configuration
-      - DEEPHUB_LICENSE_KEY=801011a9-91a8-43ca-bceb-7c03d2c86bc6
+      - DEEPHUB_OPENID_CLIENT_NAME=
+      - DEEPHUB_OPENID_CONFIG_URL=
+      - DEEPHUB_LICENSE_KEY=ae796281-907b-4eb3-9523-6ccc3bd20b63
     ports:
       - "7081"
     volumes:
