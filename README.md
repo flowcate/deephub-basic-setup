@@ -22,4 +22,4 @@ Example:
 curl http://localhost:8081/deephub/v1/zones/summary
 ```
 
-For further information visit [docs.flowcate.io](https://docs.flowcate.io/installation_instructions/).
+For further information visit [docs.deephub.io](https://docs.deephub.io/installation_instructions/).
