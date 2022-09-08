@@ -1,6 +1,6 @@
 # DeepHub® Basic Setup
 
-This project provides a completely configured “system” consisting of the DeepHub®, the DeepHub® UI and a containerized web server, acting as a reverse proxy, to simplify the overall usage and interaction of these components. For the orchestration between these three containers a Docker Compose file is used.
+This project provides a completely configured “system” consisting of the DeepHub®, the DeepHub® UI and a containerized web server, acting as a reverse proxy, to simplify the overall usage and interaction of these components. For the orchestration between these three containers docker compose is used.
 
 ## Prerequisites
 * [Docker](https://docs.docker.com/engine/install/)
