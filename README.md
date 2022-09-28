@@ -14,7 +14,7 @@ docker-compose up -d
 ```
 Now you have your own running DeepHub® instance that can be accessed with any modern web browser at the address: http://localhost:8081
 
-To complement the DeepHub UI shown above, you may also make API calls to the [DeepHub REST API](https://docs.flowcate.io/api_reference/restApi.html#/deep-hub-api-rest-api) while running the DeepHub locally. This can be done with a tool such as Postman or cURL. <br />
+To complement the DeepHub UI shown above, you may also make API calls to the [DeepHub REST API](https://docs.deephub.io/api_reference/restApi.html#/deep-hub-api-rest-api) while running the DeepHub locally. This can be done with a tool such as Postman or cURL. <br />
 To interact with the REST API, you will need to use the following baseURL: http://localhost:8081/deephub/v1 <br />
 
 Example:
