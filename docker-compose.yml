@@ -17,7 +17,7 @@ services:
       - DEEPHUB_CORS=true
       - DEEPHUB_OPENID_CLIENT_NAME=
       - DEEPHUB_OPENID_CONFIG_URL=
-      - DEEPHUB_LICENSE_KEY=ae796281-907b-4eb3-9523-6ccc3bd20b63
+      - DEEPHUB_LICENSE_KEY=a20cffb4-e4a0-4102-a007-4d066d9ab859
     ports:
       - "7081"
     volumes:
