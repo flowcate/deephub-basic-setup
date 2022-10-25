@@ -40,9 +40,9 @@ services:
       - deephub
     restart: unless-stopped
     ports:
-      - "80"
+      - "8080"
     volumes:
-      - "./hub-web/:/var/run"
+      - "./hub-web/:/tmp/run"
       - "./hub-web/nginx/log/:/var/log/nginx"
       - "./hub-web/nginx/cache/:/var/cache/nginx"
       - "./hub-web/nginx/webapp/:/webapp"
