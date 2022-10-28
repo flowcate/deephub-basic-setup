@@ -1,3 +1,9 @@
+# Introduction
+
+The DeepHub® is a lightweight, high-performance locating-middleware, that enables a seamless indoor and outdoor tracking of objects by integrating any locating technology (UWB, BLE, RFID, 5G, etc.) of any vendor through one single modern API.
+
+The DeepHub is the premier implementation of an omlox hub, specified in the open locating standard omlox.
+
 # DeepHub® Basic Setup
 
 This project provides a completely configured “system” consisting of the DeepHub®, the DeepHub® UI and a containerized web server, acting as a reverse proxy, to simplify the overall usage and interaction of these components. For the orchestration between these three containers docker compose is used.
