@@ -18,6 +18,7 @@ services:
       - DEEPHUB_OPENID_CLIENT_NAME=
       - DEEPHUB_OPENID_CONFIG_URL=
       - DEEPHUB_LICENSE_KEY=7b3f2b84-e956-4b94-a646-ff923d33b33e
+      - SQLITE_TMPDIR=/data
     ports:
       - "7081"
     volumes:
