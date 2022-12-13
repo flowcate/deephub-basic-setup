@@ -1,6 +1,8 @@
 /hub-data/config.dat
 /hub-data/stats.dat
+/hub-data/data.dat
 /hub-data/port
+/hub-data/*.bak
 /hub-web/nginx.pid
 /hub-web/nginx/*
 /apache/logs/*
