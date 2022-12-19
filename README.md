@@ -18,6 +18,12 @@ This project provides a completely configured “system” consisting of the Dee
 ```
 docker-compose up -d
 ```
+
+This command will automatically pull the necessary docker images from hub.docker.com and create docker containers before starting the latter. In case you want to see all log output immediately, invoke the former command omitting the "-d" parameter (deamon mode).
+
+|:point_up: | It may become necessary to manually call ```docker-compose pull``` first. This is the case if a newer docker image with the same name got published and therefore needs to get "re-pulled". This should not happen in general as we release updates as docker images with a different/newer tag.|
+|-----------|:---------------------------------------------------------------------------------------------------------------------------|
+
 Now you have your own running DeepHub® instance that can be accessed with any modern web browser at the address: http://localhost:8081
 
 To complement the DeepHub UI shown above, you may also make API calls to the [DeepHub REST API](https://docs.deephub.io/api_reference/restApi.html#/deep-hub-api-rest-api) while running the DeepHub locally. This can be done with a tool such as Postman or cURL. <br />
