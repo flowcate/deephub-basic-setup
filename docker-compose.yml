@@ -2,7 +2,7 @@ version: "3.2"
 services:
 
   deephub:
-    image: flowcate/deephub:latest
+    image: flowcate/deephub:2.2.0
     container_name: 8081-deephub
     restart: unless-stopped
     read_only: true
@@ -27,7 +27,7 @@ services:
       - deephub-net
 
   deephub-ui:
-    image: flowcate/deephub-ui:latest
+    image: flowcate/deephub-ui:2.2.0
     container_name: 8081-deephub-ui
     tty: true
     stdin_open: true
