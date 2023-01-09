@@ -3,7 +3,7 @@ services:
 
   deephub:
     image: flowcate/deephub-beta:2.2.0
-    container_name: 8081-deephub-beta
+    container_name: deephub-beta
     restart: unless-stopped
     read_only: true
     logging:
@@ -17,7 +17,7 @@ services:
       - DEEPHUB_CORS=true
       - DEEPHUB_OPENID_CLIENT_NAME=
       - DEEPHUB_OPENID_CONFIG_URL=
-      - DEEPHUB_LICENSE_KEY=1e554b7d-b76e-436b-abd5-b4d777770adb
+      - DEEPHUB_LICENSE_KEY=76df81ad-ead2-409c-83c6-7db1935b6cc2
       - SQLITE_TMPDIR=/data
     ports:
       - "7081"
@@ -28,7 +28,7 @@ services:
 
   deephub-ui:
     image: flowcate/deephub-ui-beta:2.2.0
-    container_name: 8081-deephub-ui-beta
+    container_name: deephub-ui-beta
     tty: true
     stdin_open: true
     read_only: true
@@ -62,7 +62,7 @@ services:
 
   deephub-apache:
     image: httpd:alpine
-    container_name: 8081-deephub-apache-beta
+    container_name: deephub-apache-beta
     restart: unless-stopped
     read_only: true
     logging:
