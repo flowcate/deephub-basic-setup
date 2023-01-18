@@ -2,7 +2,7 @@ version: "3.2"
 services:
 
   deephub:
-    image: flowcate/deephub-beta:2.2.0
+    image: flowcate/deephub-beta:2.2.1
     container_name: deephub-beta
     restart: unless-stopped
     read_only: true
@@ -27,7 +27,7 @@ services:
       - deephub-net
 
   deephub-ui:
-    image: flowcate/deephub-ui-beta:2.2.0
+    image: flowcate/deephub-ui-beta:2.2.1
     container_name: deephub-ui-beta
     tty: true
     stdin_open: true
