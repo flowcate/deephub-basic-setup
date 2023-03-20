@@ -27,7 +27,7 @@ services:
       - deephub-net
 
   deephub-ui:
-    image: flowcate/deephub-ui:admin
+    image: flowcate/deephub-ui:admin-2.3.0-beta.1-nginx-1.23.3
     container_name: deephub-ui-beta
     tty: true
     stdin_open: true
