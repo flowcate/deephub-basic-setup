@@ -12,7 +12,7 @@ This project provides a completely configured “system” consisting of the Dee
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 
-|:point_up: | We only support the operation of a DeepHub docker image in the native version for a CPU. On Windows and Linux this is typically the Intel x86_64 version, same for Intel-based macOS devices. In case you have a new ARM-based macOS device, please use the native ARM docker image named flowcate/deephub-experimental. You can choose the docker image within the docker-compose.yml file in line 5. Choose the appropriate image you need. The list of all docker images provided by flowcate can be found here: https://hub.docker.com/repositories/flowcate. The docker-compose.yml within this repo is always set to the latest Intel x86_64 image of the DeepHub. |
+|:point_up: | We only support the operation of a DeepHub docker image in the native version for a CPU. On Windows and Linux this is typically the Intel x86_64 version, same for Intel-based macOS devices. In case you have a new ARM-based macOS device, the native ARM docker image should be pulled automatically. 
 |-----------|:---------------------------------------------------------------------------------------------------------------------------|
 
 ## Running the application
