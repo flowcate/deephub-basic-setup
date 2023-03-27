@@ -12,6 +12,9 @@ This project provides a completely configured “system” consisting of the Dee
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 
+|:point_up: | We only support the operation of a DeepHub docker image in the native version for a CPU. On Windows and Linux this is typically the Intel x86_64 version, same for Intel-based macOS devices. In case you have a new ARM-based macOS device, the native ARM docker image should be pulled automatically. 
+|-----------|:---------------------------------------------------------------------------------------------------------------------------|
+
 ## Running the application
 * Open a shell.
 * Invoke Docker Compose in the directory where your docker-compose.yml file resides.
