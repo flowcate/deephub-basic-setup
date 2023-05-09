@@ -48,15 +48,8 @@ services:
       - "./hub-web/nginx/cache/:/var/cache/nginx"
       - "./hub-web/nginx/webapp/:/webapp"
     environment:
-      - DOCKER_BASE_URL=/deephub/v1
-      - DOCKER_ROOT_URL=/deephub
-      - DOCKER_WEBSOCKET_URL=
-      - DOCKER_APP_BASE_HREF=/deephub-admin-ui/
-      - DOCKER_MAP_UPDATES_PER_SECOND=10
-      - DOCKER_USE_AUTH=false
-      - DOCKER_AUTH_ISSUER=
-      - DOCKER_AUTH_REDIRECT_URI=
-      - DOCKER_AUTH_CLIENT_ID=
+      - NGINX_BASE_HREF=/deephub-admin-ui/
+      - DEEPHUB_ROOT_URL=/deephub
     networks:
       - deephub-net
 
