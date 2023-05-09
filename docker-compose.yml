@@ -54,7 +54,7 @@ services:
       - deephub-net
 
   deephub-kiosk-ui:
-    image: flowcate/deephub-ui:admin-2.3.0-nginx-1.24.0
+    image: flowcate/deephub-ui:kiosk-2.3.0-nginx-1.24.0
     container_name: deephub-kiosk-ui-beta
     tty: true
     stdin_open: true
