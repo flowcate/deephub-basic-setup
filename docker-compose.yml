@@ -3,7 +3,7 @@ services:
 
   deephub:
     image: flowcate/deephub:2.3.0
-    container_name: deephub-2.2.3
+    container_name: deephub-2.3.0
     restart: unless-stopped
     read_only: true
     logging:
@@ -26,9 +26,9 @@ services:
     networks:
       - deephub-net
 
-  deephub-ui:
+  deephub-admin-ui:
     image: flowcate/deephub-ui:admin-2.3.0-nginx-1.24.0
-    container_name: deephub-ui-2.2.3
+    container_name: deephub-admin-ui-2.3.0
     tty: true
     stdin_open: true
     read_only: true
@@ -48,21 +48,42 @@ services:
       - "./hub-web/nginx/cache/:/var/cache/nginx"
       - "./hub-web/nginx/webapp/:/webapp"
     environment:
-      - DOCKER_BASE_URL=/deephub/v1
-      - DOCKER_ROOT_URL=/deephub
-      - DOCKER_WEBSOCKET_URL=
-      - DOCKER_APP_BASE_HREF=/deephub-ui/
-      - DOCKER_MAP_UPDATES_PER_SECOND=10
-      - DOCKER_USE_AUTH=false
-      - DOCKER_AUTH_ISSUER=
-      - DOCKER_AUTH_REDIRECT_URI=
-      - DOCKER_AUTH_CLIENT_ID=
+      - NGINX_BASE_HREF=/deephub-admin-ui/
+      - DEEPHUB_ROOT_URL=/deephub
     networks:
       - deephub-net
 
+  deephub-kiosk-ui:
+    image: flowcate/deephub-ui:kiosk-2.3.0-nginx-1.24.0
+    container_name: deephub-kiosk-ui-2.3.0
+    tty: true
+    stdin_open: true
+    read_only: false
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "10m"
+    depends_on:
+      - deephub
+    restart: unless-stopped
+    ports:
+      - "8080"
+    volumes:
+      - "./hub-web/:/tmp/run"
+      - "./hub-web/nginx/log/:/var/log/nginx"
+      - "./hub-web/nginx/cache/:/var/cache/nginx"
+      - "./hub-web/nginx/conf.d/:/etc/nginx/conf.d"
+    environment:
+      - NGINX_BASE_HREF=/deephub-kiosk-ui/
+      - DEEPHUB_ROOT_URL=/deephub
+    networks:
+      - deephub-net
+
+
   deephub-apache:
     image: httpd:alpine
-    container_name: deephub-apache-2.2.3
+    container_name: deephub-apache-2.3.0
     restart: unless-stopped
     read_only: true
     logging:
@@ -71,7 +92,7 @@ services:
         max-file: "2"
         max-size: "10m"
     depends_on:
-      - deephub-ui
+      - deephub-admin-ui
     ports:
       - "8081:80"
     volumes:
