@@ -40,4 +40,4 @@ Example:
 curl http://localhost:8081/deephub/v1/zones/summary
 ```
 
-For more information, visit [docs.deephub.io](https://docs.deephub.io/installation_instructions/).
+For more information, visit [docs.deephub.io](https://docs.deephub.io/docs/testing-deephub/running_dh_locally/).
