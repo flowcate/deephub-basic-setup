@@ -17,7 +17,7 @@ services:
       - DEEPHUB_CORS=true
       - DEEPHUB_OPENID_CLIENT_NAME=
       - DEEPHUB_OPENID_CONFIG_URL=
-      - DEEPHUB_LICENSE_KEY=75c23c4b-8ae3-43ce-a5b1-dc7267b55ece
+      - DEEPHUB_LICENSE_KEY=4597ceda-83e2-43bb-a3aa-61b9450fad74
       - SQLITE_TMPDIR=/data
     ports:
       - "7081"
@@ -93,6 +93,7 @@ services:
         max-size: "10m"
     depends_on:
       - deephub-admin-ui
+      - deephub-kiosk-ui
     ports:
       - "8081:80"
     volumes:
