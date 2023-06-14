@@ -3,7 +3,7 @@ services:
 
   deephub:
     image: flowcate/deephub:2.3.1
-    container_name: deephub-2.3.1
+    container_name: deephub-beta
     restart: unless-stopped
     read_only: true
     logging:
@@ -17,7 +17,7 @@ services:
       - DEEPHUB_CORS=true
       - DEEPHUB_OPENID_CLIENT_NAME=
       - DEEPHUB_OPENID_CONFIG_URL=
-      - DEEPHUB_LICENSE_KEY=3ab0bf36-a5ba-431f-90f3-e8acfc99c4f3
+      - DEEPHUB_LICENSE_KEY=0e74e823-554b-4068-93ca-af5606217beb
       - SQLITE_TMPDIR=/data
     ports:
       - "7081"
@@ -28,7 +28,7 @@ services:
 
   deephub-admin-ui:
     image: flowcate/deephub-ui:admin-2.3.1-nginx-1.24.0
-    container_name: deephub-admin-ui-2.3.1
+    container_name: deephub-admin-ui-beta
     tty: true
     stdin_open: true
     read_only: true
@@ -55,7 +55,7 @@ services:
 
   deephub-kiosk-ui:
     image: flowcate/deephub-ui:kiosk-2.3.1-nginx-1.24.0
-    container_name: deephub-kiosk-ui-2.3.1
+    container_name: deephub-kiosk-ui-beta
     tty: true
     stdin_open: true
     read_only: false
