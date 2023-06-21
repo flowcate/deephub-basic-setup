@@ -3,7 +3,7 @@ services:
 
   deephub:
     image: flowcate/deephub:2.3.1
-    container_name: deephub-beta
+    container_name: deephub-2.3.1
     restart: unless-stopped
     read_only: true
     logging:
@@ -28,7 +28,7 @@ services:
 
   deephub-admin-ui:
     image: flowcate/deephub-ui:admin-2.3.1-nginx-1.24.0
-    container_name: deephub-admin-ui-beta
+    container_name: deephub-admin-ui-2.3.1
     tty: true
     stdin_open: true
     read_only: true
@@ -55,7 +55,7 @@ services:
 
   deephub-kiosk-ui:
     image: flowcate/deephub-ui:kiosk-2.3.1-nginx-1.24.0
-    container_name: deephub-kiosk-ui-beta
+    container_name: deephub-kiosk-ui-2.3.1
     tty: true
     stdin_open: true
     read_only: false
