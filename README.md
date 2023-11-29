@@ -33,11 +33,11 @@ Calling this URL will redirect you to http://localhost:8081/deephub-admin-ui/ wh
 
 
 To complement the DeepHub UI shown above, you may also make API calls to the [DeepHub REST API](https://docs.deephub.io/api_reference/restApi.html#/deep-hub-api-rest-api) while running the DeepHub locally. This can be done with a tool such as Postman or cURL. <br />
-To interact with the REST API, you will need to use the following baseURL: http://localhost:8081/deephub/v1 <br />
+To interact with the REST API, you will need to use the following baseURL: http://localhost:8081/deephub/v2 <br />
 
 Example:
 ```
-curl http://localhost:8081/deephub/v1/zones/summary
+curl http://localhost:8081/deephub/v2/zones/summary
 ```
 
 For more information, visit [docs.deephub.io](https://docs.deephub.io/docs/testing-deephub/running_dh_locally/).
