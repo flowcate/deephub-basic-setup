@@ -2,7 +2,7 @@ version: "3.2"
 services:
 
   deephub:
-    image: flowcate/deephub:2.4.0
+    image: flowcate/deephub:2.4.1
     container_name: deephub-beta
     restart: unless-stopped
     read_only: true
@@ -27,7 +27,7 @@ services:
       - deephub-net
 
   deephub-admin-ui:
-    image: flowcate/deephub-ui:admin-2.4.0-nginx-1.25.3
+    image: flowcate/deephub-ui:admin-2.4.1-nginx-1.25.3
     container_name: deephub-admin-ui-beta
     tty: true
     stdin_open: true
@@ -54,7 +54,7 @@ services:
       - deephub-net
 
   deephub-kiosk-ui:
-    image: flowcate/deephub-ui:kiosk-2.4.0-nginx-1.25.3
+    image: flowcate/deephub-ui:kiosk-2.4.1-nginx-1.25.3
     container_name: deephub-kiosk-ui-beta
     tty: true
     stdin_open: true
