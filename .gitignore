@@ -5,4 +5,5 @@
 /hub-data/*.bak
 /hub-web/nginx.pid
 /hub-web/nginx/*
+/hub-web/data/*
 /apache/logs/*
