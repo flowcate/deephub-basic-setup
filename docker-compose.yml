@@ -1,6 +1,5 @@
 version: "3.2"
 services:
-
   deephub:
     image: flowcate/deephub:2.5.0
     container_name: deephub-2.5.0
@@ -26,9 +25,9 @@ services:
     networks:
       - deephub-net
 
-  deephub-admin-ui:
+  deephub-ui:
     image: flowcate/deephub-ui:2.5.0-nginx-1.26.0
-    container_name: deephub-admin-ui-2.5.0
+    container_name: deephub-ui-2.5.0
     tty: true
     stdin_open: true
     read_only: true
@@ -43,43 +42,16 @@ services:
     ports:
       - "8080"
     volumes:
-      - "./hub-web/:/tmp/run"
-      - "./hub-web/nginx/log/:/var/log/nginx"
-      - "./hub-web/nginx/cache/:/var/cache/nginx"
-      - "./hub-web/nginx/webapp/:/webapp"
-    environment:
-      - NGINX_BASE_HREF=/deephub-admin-ui/
-      - DEEPHUB_ROOT_URL=/deephub
-    networks:
-      - deephub-net
-
-  deephub-kiosk-ui:
-    image: flowcate/deephub-ui:2.5.0-nginx-1.26.0
-    container_name: deephub-kiosk-ui-2.5.0
-    tty: true
-    stdin_open: true
-    read_only: false
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "2"
-        max-size: "10m"
-    depends_on:
-      - deephub
-    restart: unless-stopped
-    ports:
-      - "8080"
-    volumes:
-      - "./hub-web/:/tmp/run"
+      - "./hub-web/tmp/:/tmp"
       - "./hub-web/nginx/log/:/var/log/nginx"
       - "./hub-web/nginx/cache/:/var/cache/nginx"
       - "./hub-web/nginx/conf.d/:/etc/nginx/conf.d"
+      - "./hub-web/data/:/app/deephub-ui-service/data"
     environment:
-      - NGINX_BASE_HREF=/deephub-kiosk-ui/
+      - NGINX_BASE_HREF=/deephub-ui/
       - DEEPHUB_ROOT_URL=/deephub
     networks:
       - deephub-net
-
 
   deephub-apache:
     image: httpd:alpine
@@ -92,8 +64,7 @@ services:
         max-file: "2"
         max-size: "10m"
     depends_on:
-      - deephub-admin-ui
-      - deephub-kiosk-ui
+      - deephub-ui
     ports:
       - "8081:80"
     volumes:
