@@ -14,7 +14,7 @@ services:
       - DEEPHUB_CORS=true
       - DEEPHUB_OPENID_CLIENT_NAME=
       - DEEPHUB_OPENID_CONFIG_URL=
-      - DEEPHUB_LICENSE_KEY=4170ab28-b201-49dd-8082-0552355b86e8
+      - DEEPHUB_LICENSE_KEY=7bbc4fd0-f618-45c8-a9da-e0bfedd67710
       - SQLITE_TMPDIR=/data
     ports:
       - "7081"
