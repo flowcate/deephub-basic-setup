@@ -14,6 +14,8 @@ This project provides a completely configured “system” consisting of the Dee
 
 |:point_up: | We only support the operation of a DeepHub docker image in the native version for a CPU. On Windows and Linux this is typically the Intel x86_64 version, same for Intel-based macOS devices. In case you have a new ARM-based macOS device, the native ARM docker image should be pulled automatically. 
 |-----------|:---------------------------------------------------------------------------------------------------------------------------|
+|:point_up: | Please request a trial license key for testing at partners@flowcate.com or via our [contact form on our homepage](https://flowcate.com/contact-us/).
+
 
 ## Running the application
 * Open a shell.
