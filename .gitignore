@@ -3,6 +3,7 @@
 /hub-data/data.dat
 /hub-data/port
 /hub-data/*.bak
+/hub-data/license_key.yaml
 /hub-web/nginx.pid
 /hub-web/nginx/*
 /hub-web/data/*
