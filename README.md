@@ -34,7 +34,7 @@ Now you have your own running DeepHub® instance that can be accessed with any m
 Calling this URL will redirect you to http://localhost:8081/deephub-ui/admin/ which is the so-called "Admin UI" of the DeepHub; i.e. the setup and configuration tool. There is also the so-called "Kiosk UI" that focus on everyday usage with a large LiveView and advanced search capabilities. The latter can be reached at http://localhost:8081/deephub-ui/.
 
 
-To complement the DeepHub UI shown above, you may also make API calls to the [DeepHub REST API](https://docs.deephub.io/api_reference/restApi.html#/deep-hub-api-rest-api) while running the DeepHub locally. This can be done with a tool such as Postman or cURL. <br />
+To complement the DeepHub UI shown above, you may also make API calls to the [DeepHub REST API](https://docs.deephub.io/docs/deephub/the-apis/api#/) while running the DeepHub locally. This can be done with a tool such as Postman or cURL. <br />
 To interact with the REST API, you will need to use the following baseURL: http://localhost:8081/deephub/v2 <br />
 
 Example:
