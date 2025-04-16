@@ -1,6 +1,6 @@
 services:
   deephub:
-    image: flowcate/deephub:2.6.0
+    image: flowcate/deephub:2.6.1
     restart: unless-stopped
     read_only: true
     logging:
@@ -24,7 +24,7 @@ services:
       - deephub-net
 
   deephub-ui:
-    image: flowcate/deephub-ui:2.6.0-nginx-1.27.2
+    image: flowcate/deephub-ui:2.6.1-nginx-1.27.4
     tty: true
     stdin_open: true
     read_only: true
